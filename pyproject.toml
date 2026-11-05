@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "prunepriv"
+version = "0.1.0"
+description = "Prune to Protect: dynamic data pruning, memorization and membership inference (WLIB)."
+requires-python = ">=3.10"
+readme = "README.md"
+license = { text = "MIT" }
+
+# Runtime deps are pinned in requirements.txt (torch/torchvision need the CUDA index).
+# This section keeps the package installable in editable mode: `pip install -e .`
+dependencies = []
+
+[project.optional-dependencies]
+imagenet = ["timm", "fastargs==1.2.0", "terminaltables"]  # FFCV via conda; see env/setup_imagenet.sh
+
+[project.scripts]
+prunepriv-train = "prunepriv.cli.train:main"
+prunepriv-attack = "prunepriv.cli.attack:main"
+prunepriv-memorize = "prunepriv.cli.memorize:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+prunepriv = ["imagenet/configs/*.yaml"]

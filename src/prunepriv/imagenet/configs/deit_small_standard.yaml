@@ -1,0 +1,47 @@
+model_params:
+  model_name: deit_small_patch16_224
+  pretrained: False
+
+dataset:
+  dataset_name: ImageNet
+  num_classes: 1000
+  label_smoothing: 0.1
+  batch_size: 256
+  num_workers: 8
+  data_root: ./data/imagenet          # EDIT: dir containing the .beton files
+  train_beton: train_500_0.50_90_indexed.beton
+  val_beton: val_500_0.50_90_indexed.beton
+
+experiment_params:
+  wandb_project: imagenet_rmia
+  expt_name: deit_small_standard
+  epochs: 300
+  training_precision: bfloat16
+  base_dir: ./results/imagenet/runs   # EDIT: output dir
+  seed: 42
+
+optimizer:
+  optim_type: AdamW
+  lr: 0.005
+  lr_min: 0.0
+  momentum: 0.9
+  weight_decay: 0.1
+  scheduler_type: TriangularSchedule
+  warmup_steps: 10
+
+data_pruning:
+  method: standard
+  ib_ratio: 0.5
+  ib_delta: 0.875
+  prw_epsilon: 0.05
+
+loo:
+  enabled: False
+  include_mask_path: ""
+  run_tag: ""
+  save_epochs: ""
+
+dist_params:
+  port: 12355
+  address: localhost
+  gpus_per_run: 4

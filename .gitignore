@@ -1,0 +1,55 @@
+# ---- data, models, results (regenerable / large; never committed) ----
+# NOTE: anchored to repo root (leading /) so they only match the top-level artifact dirs and never
+# swallow nested source packages such as src/prunepriv/data/ (the image_pt loader lives there).
+/data/
+/banks/
+/results/
+/outputs/
+/runs/
+/wandb/
+*.beton
+*.beton.jsonl
+*.beton.classes.json
+
+# CIFAR fast-loader blobs (auto-downloaded on first run)
+cifar10_train.pt
+cifar10_test.pt
+cifar100_train.pt
+cifar100_test.pt
+cifar-10-batches-py/
+cifar-100-python/
+cifar-10-python.tar.gz
+
+# large training artifacts
+*evolution_log*.pt
+epoch_*.pt
+step_*.pt
+best_epoch.pt
+last_epoch.pt
+seed_avg.pt
+loo_scores_*.pt
+subsets_*.pt
+
+# ---- environments (never commit venv/conda into the repo) ----
+.venv/
+venv/
+env/venv/
+
+# ---- python ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# notebooks
+*.ipynb
+
+# ---- local ----
+.DS_Store
+*.log
+*.pdf
+/CLAUDE.md

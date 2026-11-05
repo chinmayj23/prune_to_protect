@@ -1,0 +1,32 @@
+# Core environment for CIFAR-10 / CIFAR-100 training, RMIA/LiRA, memorization, and all analysis.
+# Tested with Python 3.10.12. ImageNet/FFCV extras are in
+# requirements-imagenet.txt (a separate conda env) — NOT needed for CIFAR or analysis.
+#
+# torch/torchvision are the CUDA 12.1 builds; install them from the PyTorch index, e.g.:
+#   pip install torch==2.5.1 torchvision==0.20.1 --index-url https://download.pytorch.org/whl/cu121
+# then `pip install -r requirements.txt` for the rest.
+
+torch==2.5.1
+torchvision==0.20.1
+torchmetrics==1.9.0
+
+numpy==2.2.6
+scipy==1.15.3
+scikit-learn==1.7.2
+pandas==2.3.3
+
+matplotlib==3.10.8
+seaborn==0.13.2
+pillow==12.0.0
+
+wandb==0.25.1          # optional logging
+timm==1.0.28           # CelebA / Waterbirds models
+datasets==5.0.1        # CelebA / Waterbirds download
+ipython                # figure code
+rich
+tqdm==4.67.3
+PyYAML==6.0.3
+einops==0.8.2
+fastargs==1.2.0
+terminaltables==3.1.10  # imported by fastargs, which does not declare it
+h5py==3.14.0

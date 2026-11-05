@@ -1,0 +1,8 @@
+# ImageNet-only extras. FFCV has compiled dependencies (numba, opencv) that need a separate conda
+# environment: see env/setup_imagenet.sh. Base torch/torchvision/numpy match requirements.txt.
+
+ffcv                   # FFCV loaders + .beton I/O (conda-forge recommended)
+timm                   # DeiT-Small
+numba                  # FFCV dependency
+fastargs==1.2.0        # ImageNet configs use fastargs Sections
+terminaltables         # imported by fastargs, which does not declare it
