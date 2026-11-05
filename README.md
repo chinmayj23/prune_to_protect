@@ -38,7 +38,7 @@ and does it propagate to membership‑inference vulnerability?**
 
 We define each sample's **cumulative pruning rate**, where $T_s$ is the epoch at which annealing begins:
 
-$$\rho_i = \frac{\#\{\text{epochs in which } i \text{ is pruned}\}}{T_s}$$
+$$\rho_i = \frac{\\{\text{epochs in which } i \text{ is pruned}\}}{T_s}$$
 
 Easy samples are pruned often (**high ρ**); persistently hard samples are almost never pruned (**low ρ**). This
 single quantity — obtained for free from the pruning schedule — is what we use to split the data into
